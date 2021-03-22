@@ -1,0 +1,10 @@
+BlueShift	KEYWORD1
+buttonManager	KEYWORD3
+init50005	KEYWORD3
+button_state_t	KEYWORD1
+getALSValue	KEYWORD3
+setDisplayBrightness	KEYWORD3
+setWhiteLED	KEYWORD3
+setInfraredLED	KEYWORD3
+upButtonPressed	KEYWORD3
+downButtonPressed	KEYWORD3

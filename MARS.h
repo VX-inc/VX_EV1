@@ -1,5 +1,5 @@
 /*!
- * @file BlueShift.h
+ * @file MARS.h
  *
  * This library is written for the VX Inc. BlueShift headset to enable 
  * user applications.  This library includes references to hardware that 
@@ -16,9 +16,16 @@
  * 
  */
 
-#ifndef BlueShift_h
-#define BlueShift_h
+#ifndef MARS_h
+#define MARS_h
 #include "Arduino.h"
+
+#define MARS_RIGHT_MODULE_D5 5
+#define MARS_RIGHT_MODULE_D6 6
+#define MARS_FRONT_MODULE_D7 7
+#define MARS_FRONT_MODULE_D8 8
+#define MARS_LEFT_MODULE_D9  9
+#define MARS_LEFT_MODULE_D10 10
 
 enum button_state_t {
 	BUTTON_NO_PRESS,
@@ -29,17 +36,37 @@ enum button_state_t {
 	BUTTON_BOTH_PRESS
 };
 
-class BlueShift
+class MARS
 {
 public:
-	bool init50005(uint16_t);
-	button_state_t buttonManager(void);
+    void init(void);
 	void setDisplayBrightness(uint8_t brightness);
+    uint16_t getALSValue(void);
+private:
+};
+
+class BlueShift_ODN50005
+{
+public:
+	bool init(uint16_t);
+	button_state_t buttonManager(void);
 	void setWhiteLED(uint8_t brightness);
 	void setInfraredLED(uint8_t brightness);
+	bool whiteLEDIsOn(void);
+	bool infraredLEDIsOn(void);
 	bool upButtonPressed(void);	
 	bool downButtonPressed(void);
-    uint16_t getALSValue(void);
+private:
+
+};
+
+class EV1
+{
+public:
+    void init(uint16_t);
+	button_state_t buttonManager(void);
+	bool upButtonPressed(void);	
+	bool downButtonPressed(void);
 private:
 };
 

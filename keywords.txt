@@ -1,6 +1,8 @@
-BlueShift	KEYWORD1
+MARS	KEYWORD1
+BlueShift_ODN50005	KEYWORD1
+EV1 KEYWORD1
 buttonManager	KEYWORD3
-init50005	KEYWORD3
+init	KEYWORD3
 button_state_t	KEYWORD1
 getALSValue	KEYWORD3
 setDisplayBrightness	KEYWORD3

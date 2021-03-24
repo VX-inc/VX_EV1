@@ -1,7 +1,7 @@
 /*!
  * @file BlueShift.h
  *
- * This library is written for the V.X. Inc. BlueShift headset to enable 
+ * This library is written for the VX Inc. BlueShift headset to enable 
  * user applications.  This library includes references to hardware that 
  * may or may not be installed on the headset depending on the configuration.
  * 

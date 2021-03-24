@@ -1,5 +1,5 @@
 /*!
- * @file BlueShift_ODN-50005.ino
+ * @file BlueShift_Brightness.ino
  *
  * This is an example sketch for use with the ODN-50005 Image Sensor Module.  
  * 

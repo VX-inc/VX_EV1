@@ -1,7 +1,9 @@
-# VX_BlueShift-Application-Examples
+# VX_EV1
 
 ## Introduction
-The VX BlueShift is a finished headset dev-kit with all of the Modular Augmented Reality System (MARS) features integrated into a rugged, outdoor-ready package. VX offers ready-to-go modules with cameras, depth sensors, inside-out tracking, and GPS INS capabilities. Designed for an IP67 rating, BlueShift is the first full-featured headset that can be immersed in water.
+The V.X. EV-1 is a devleopment board designed to assist in the development of user applications on the V.X. Modular Augmented Reality System (MARS).  
+
+Note that the EV-1 Library depends on the [MARS Libary}(https://github.com/VX-inc/VX_MARS), please install this libary before trying to use this EV-1 Library.
 
 [learn more here](https://www.vx-inc.com)
 
@@ -18,3 +20,12 @@ To get started, download the MARS library above.
 
 ## Application Examples
 
+#EV-1 Example
+This is an example sketch for use with the EV-1 Evaluation Board.  
+This sketch requires the EV-1 board and at least 1 CNED Module.
+This application demonstrates the following:
+* Short button presses increase and decrease the display brightness
+* Double button press switches to the ambient light sensor for CNED brightness control
+* Serial port communication for system state
+
+Please do not manipulate the individual ports without knowledge, this could cause damage to the hardware.

@@ -3,7 +3,7 @@
 ## Introduction
 The V.X. EV-1 is a devleopment board designed to assist in the development of user applications on the V.X. Modular Augmented Reality System (MARS).  
 
-Note that the EV-1 Library depends on the [MARS Libary}(https://github.com/VX-inc/VX_MARS), please install this libary before trying to use this EV-1 Library.
+Note that the EV-1 Library depends on the [MARS Libary](https://github.com/VX-inc/VX_MARS), please install this libary before trying to use this EV-1 Library.
 
 [learn more here](https://www.vx-inc.com)
 

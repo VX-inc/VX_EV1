@@ -1,14 +1,12 @@
 /*!
- * @file BlueShift_Brightness.ino
+ * @file Ev-1_Example.ino
  *
- * This is an example sketch for use with the ODN-50005 Image Sensor Module.  
+ * This is an example sketch for use with the EV-1 Evaluation Board.  
  * 
- * This sketch requires the base headset, an ODN-50005 module installed in the
- * right accessory bay, and at least 1 CNED installed.
+ * This sketch requires the EV-1 board and at least 1 CNED Module.
  * 
  * This application demonstrates the following:
  * - Short button presses increase and decrease the display brightness
- * - Long button presses turn on and off the White and IR LEDs
  * - Double button press switches to the ambient light sensor for CNED brightness control
  * - Serial port communication for system state
  * 
@@ -16,22 +14,23 @@
  * to the hardware.
  * 
  * This codebase is maintained at the following address. 
- * <https://github.com/VX-inc/VX_BlueShift-Application-Examples>.
+ * <https://github.com/VX-inc/VX_EV1>.
+ * 
+ * This codebase is dependant on having the MARS libary installed
+ * <https://github.com/VX-inc/VX_MARS>
  *
  * For more information about the hardware referenced, please visit
  * <https://www.vx-inc.com/>
  * 
  */
 
-#include <Wire.h>
-#include <MARS.h>
+#include <MARS.h> //The MARS libary must be installed as well
+#include <EV-1.h>
 
 #define BUTTON_HOLD_TIME_MS  1100          //Button hold time in milliseconds to indicate a long press
-#define WHITE_LED_BRIGHTNESS 100           //Brightness of the White LED on the ODN-50005 module on a scale from 1-255
-#define IR_LED_BRIGHTNESS 100              //Brightness of the IR LED on the ODN-50005 module on a scale from 1-255
 
 MARS mars;                                 //Create base AR system object, for adjusting display brightness, and reading ambient light sensor.
-BlueShift_ODN50005 blueshift_ODN50005;     //Create object for ODN-50005 Imaging Sensor Module, contains buttons, and LEDs
+EV1 ev1;                                   //Create object for EV-1, contains buttons
 int display_brightness = 4;                //Brightness scale 0-10, 0 is off, 10 is maximum brightness
 bool als_controlled_brightness = false;    //Brightness for display automatically controlled by the ambient light sensor input, when false, brightness is controlled by the buttons.
 
@@ -41,13 +40,8 @@ void setup() {
   mars.init();                                     //Initalize the base hardware, display brightness and Ambient Light Sensor
   mars.setDisplayBrightness(display_brightness);   //Set the display brightness to the initial value
 
-  Serial.println("BlueShift ODN-50005 Example");
-  bool success =  blueshift_ODN50005.init(BUTTON_HOLD_TIME_MS); //For use with the ODN-50005 Imaging Sensor Module, enables the buttons and lights, button hold time for long press
-  if (success) {
-    Serial.println("Connected to Imaging Sensor Module");
-  } else {
-    Serial.println("Could not connect to Imaging Sensor Module");
-  }
+  Serial.println("EV-1 Example");
+  ev1.init(BUTTON_HOLD_TIME_MS);                   //For use with the EV-1 evaluation board
   
 }
 
@@ -58,7 +52,7 @@ void loop() {
 }
 
 void buttonLoop(void) {
-  button_state_t buttonPressed = blueshift_ODN50005.buttonManager(); //Gets the state of the button presses
+  button_state_t buttonPressed = ev1.buttonManager(); //Gets the state of the button presses
 
   switch (buttonPressed) {
     case BUTTON_NO_PRESS:
@@ -71,7 +65,6 @@ void buttonLoop(void) {
       break;
     case BUTTON_LONG_UP:
       Serial.println("Up button long press");
-      toggleWhiteLED();
       break;
     case BUTTON_SHORT_DOWN:
       Serial.println("Down button short press");
@@ -81,7 +74,6 @@ void buttonLoop(void) {
       break;
     case BUTTON_LONG_DOWN:
       Serial.println("Down button long press");
-      toggleIrLED();
       break;
     case BUTTON_BOTH_PRESS:
       Serial.println("Double button press");
@@ -131,24 +123,4 @@ void turnDownBrightness(void) {
     display_brightness--;
   }
   setBrightness(display_brightness);
-}
-
-void toggleWhiteLED(void) {
-  if (blueshift_ODN50005.whiteLEDIsOn()) {
-    blueshift_ODN50005.setWhiteLED(0);      //0 brightness is off
-    Serial.println("White LED off");
-  } else {
-    blueshift_ODN50005.setWhiteLED(WHITE_LED_BRIGHTNESS);    //Scale from 1-255 brightness, turning on the White LED automatically turns off the IR LED, if it is on.
-    Serial.println("White LED on");
-  }
-}
-
-void toggleIrLED(void) {
-  if (blueshift_ODN50005.infraredLEDIsOn()) {
-    blueshift_ODN50005.setInfraredLED(0);      //0 brightness is off
-    Serial.println("Infrared LED off");
-  } else {
-    blueshift_ODN50005.setInfraredLED(IR_LED_BRIGHTNESS);    //Scale from 1-255 brightness, turning on the IR LED automatically turns off the White LED, if it is on.
-    Serial.println("Infrared LED on");
-  }
 }

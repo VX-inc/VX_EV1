@@ -20,9 +20,11 @@ To get started, download the MARS library above.
 
 ## Application Examples
 
-#EV-1 Example
+### EV-1 Example
 This is an example sketch for use with the EV-1 Evaluation Board.  
+
 This sketch requires the EV-1 board and at least 1 CNED Module.
+
 This application demonstrates the following:
 * Short button presses increase and decrease the display brightness
 * Double button press switches to the ambient light sensor for CNED brightness control

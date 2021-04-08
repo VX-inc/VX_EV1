@@ -1,9 +1,9 @@
 /*!
- * @file Ev-1_Example.ino
+ * @file Ev1_Example.ino
  *
- * This is an example sketch for use with the EV-1 Evaluation Board.  
+ * This is an example sketch for use with the EV1 Evaluation Board.  
  * 
- * This sketch requires the EV-1 board and at least 1 CNED Module.
+ * This sketch requires the EV1 board and at least 1 CNED Module.
  * 
  * This application demonstrates the following:
  * - Short button presses increase and decrease the display brightness
@@ -25,12 +25,12 @@
  */
 
 #include <MARS.h> //The MARS libary must be installed as well
-#include <EV-1.h>
+#include <EV1.h>
 
 #define BUTTON_HOLD_TIME_MS  1100          //Button hold time in milliseconds to indicate a long press
 
 MARS mars;                                 //Create base AR system object, for adjusting display brightness, and reading ambient light sensor.
-EV1 ev1;                                   //Create object for EV-1, contains buttons
+EV1 ev1;                                   //Create object for EV1, contains buttons
 int display_brightness = 4;                //Brightness scale 0-10, 0 is off, 10 is maximum brightness
 bool als_controlled_brightness = false;    //Brightness for display automatically controlled by the ambient light sensor input, when false, brightness is controlled by the buttons.
 
@@ -40,8 +40,8 @@ void setup() {
   mars.init();                                     //Initalize the base hardware, display brightness and Ambient Light Sensor
   mars.setDisplayBrightness(display_brightness);   //Set the display brightness to the initial value
 
-  Serial.println("EV-1 Example");
-  ev1.init(BUTTON_HOLD_TIME_MS);                   //For use with the EV-1 evaluation board
+  Serial.println("EV1 Example");
+  ev1.init(BUTTON_HOLD_TIME_MS);                   //For use with the EV1 evaluation board
   
 }
 

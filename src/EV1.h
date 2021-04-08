@@ -1,8 +1,8 @@
 
 /*!
- * @file EV-1.h
+ * @file EV1.h
  *
- * This library is written for the V.X. Inc. EV-1 Dev Board to develop 
+ * This library is written for the V.X. Inc. EV1 Dev Board to develop 
  * user applications. 
  * 
  * This codebase is maintained at the following address. 

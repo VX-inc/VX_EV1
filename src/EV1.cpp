@@ -1,8 +1,8 @@
 
 /*!
- * @file EV-1.cpp
+ * @file EV1.cpp
  *
- * This library is written for the V.X. Inc. EV-1 Dev Board to develop 
+ * This library is written for the V.X. Inc. EV1 Dev Board to develop 
  * user applications. 
  * 
  * This codebase is maintained at the following address. 
@@ -13,10 +13,10 @@
  * 
  */
 
-#include "EV-1.h"
+#include "EV1.h"
 #include "Arduino.h"
 
-//EV-1 Defines
+//EV1 Defines
 #define EV1_UP_BUTTON_PIN               6
 #define EV1_DOWN_BUTTON_PIN             5
 

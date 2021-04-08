@@ -1,5 +1,4 @@
 MARS    KEYWORD1
-EV-1    KEYWORD1
 EV1 KEYWORD1
 init    KEYWORD3
 button_state_t  KEYWORD1

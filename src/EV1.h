@@ -32,4 +32,5 @@ public:
 	bool upButtonPressed(void);	
 	bool downButtonPressed(void);
 private:
+	int button_hold_time = 0;
 };

@@ -20,8 +20,6 @@
 #define EV1_UP_BUTTON_PIN               6
 #define EV1_DOWN_BUTTON_PIN             5
 
-int button_hold_time = 0;
-
 //////////// EV1 FUNCITONS ///////////////
 
 void EV1::init(uint16_t button_time) {
